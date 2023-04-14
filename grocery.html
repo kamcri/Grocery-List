@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="grocery.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="grocery rounded">
+        <h1 id="grocery">Grocery List</h1>
+        <input type="text" id="addedItem" placeholder="e.g. eggs">
+        <button type="button" onclick="addListItem()">Add</button>
+
+        <!-- List of grocery items. Has an edit and
+             delete button next to each item-->
+        <ul id="list">
+
+        </ul>
+        <!-- Clear items button
+            Move to bottom of the div below the list items -->
+        <button type="button" onclick="clear()">Clear Items</button>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="jquery-2.1.0.js"> </script>
+    <script type="text/javascript" src="classes.js"></script>
+  </body>
+</html>
