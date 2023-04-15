@@ -1,31 +1,51 @@
-function addListItem() {
-  let input = document.getElementById('addedItem');
-  let ul = document.getElementById('list');
-  let li = document.createElement("li");
+//map for input items
+const listItems = new Map();
 
-  li.appendChild(document.createTextNode(input.value));
-  ul.appendChild(li);
+const listElement = document.getElementById('list');
+const inputElement = document.getElementById('itemInput');
+const addBtn = document.getElementById('addItemBtn');
+const clearBtn = document.getElementById('clearListBtn');
 
-  //adds a delete button
-  let deleteButton= document.createElement("button");
-  deleteButton.setAttribute('class', 'delBtn');
-  deleteButton.appendChild(document.createTextNode("Delete"));
-  li.appendChild(deleteButton);
-  deleteButton.onclick = removeItem;
+/*Add an event listener to the add item button. This
+  function takes the input from the input field
+  and adds it to the map when the button is clicked. */
+addBtn.addEventListener("click", () => {
+  const input = inputElement.value.trim();
 
-  //clears text box after adding the item
-  input.value = " ";
-}
+  if(input) {
+    //date.now() will generate a unique number/key for each value in the map
+    listItems.set(Date.now(), input);
+    inputElement.value = "";
+    displayList();
+  }
+})
 
-function removeItem(event){
-  let li = event.target.parentNode;
-  let ul = li.parentNode;
-  ul.removeChild(li);
-}
+//add an event listener to the clear all items button
+clearBtn.addEventListener("click", () => {
+  listItems.clear();
+  displayList();
+})
 
-function clear() {
-  let ul = document.getElementById("list");
-  while (ul.firstChild) {
-    ul.removeChild(ul.firstChild);
+function displayList() {
+  //list Element is the unordered list
+  listElement.innerHTML = "";
+
+  //for each key value pair in the listItems Map
+  for(const [key, value] of listItems) {
+    //create a list item element
+    const li = document.createElement("li");
+    li.classList.add('listItem');
+    li.textContent = value;
+    //add the new li element to the unordered list
+    listElement.appendChild(li);
+    //add a delete button next to each li element
+    let delBtn = document.createElement("button");
+    delBtn.classList.add('deleteBtn')
+    delBtn.appendChild(document.createTextNode("delete"));
+    li.appendChild(delBtn);
+    //add an event listener to the delete button
+    delBtn.addEventListener("click", () => {
+      listElement.removeChild(li);
+    })
   }
 }
