@@ -1,0 +1,93 @@
+body {
+  /*make lighter color*/
+  background-color: #C7DBE6;
+  font-family: monospace;
+  color: #071108;
+}
+
+.main {
+  margin: auto;
+  width: 500px;
+  height: 250px;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+}
+
+.rounded {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/*header 1*/
+#title {
+
+}
+
+/*text input field*/
+#itemInput {
+  width: auto;
+  background-image: url('../img/egg.png');
+  background-size: 15px;
+  background-repeat: no-repeat;
+  padding-left: 45px;
+  border-radius: 10px;
+  border: 1px solid #1B4965;
+}
+
+#itemInput:hover {
+  border: 1px solid #80CED7;
+  transition: .3s border-color;
+}
+
+/*Center this*/
+#grocery {
+  width: 350px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/*unordered list*/
+#list {
+  list-style-type: none;
+  text-align: left;
+}
+
+/*list items */
+.listItem {
+  position: relative;
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  color: white;
+  float: right;
+  cursor: pointer;
+}
+
+.deleteBtn img {
+  width: 15px;
+  height: 15px;
+}
+
+#addItemBtn {
+  background-color: #1B4965;
+  border: none;
+  color: white;
+}
+
+#clearListBtn {
+  background-color: #1B4965;
+  border: none;
+  color: white;
+  /*move to bottom of the grocery div*/
+}
+
+/*Find a way to have the div "grow" with the list..
+after certain amount of items added, the button and list leave the div*/
